@@ -22,11 +22,17 @@ export class ContactPage {
    
    auth.authState.subscribe( res=> {
       
+   if(res != undefined){
+     
     db.list("users",ref => ref.orderByChild("email").equalTo(res.email)).valueChanges().forEach(data => {
       this.image = data[0]["image"];
       this.verified = data[0]['verified']
-    })
+    });
     
+    
+   }
+
+  
   });
 
   }
@@ -70,6 +76,18 @@ export class ContactPage {
 
   cancle(){
     $(".edit-dialog").css("display","none");
+  }
+
+
+  logout(){
+    var alert = this.alert.create({
+      subTitle:"Logout from your account?",
+      buttons:['cancle',{text:'logout',handler: out=> {
+        this.auth.auth.signOut();
+        
+      }}]
+    });
+    alert.present();
   }
 
 }

@@ -8,7 +8,7 @@ import * as $ from "jquery";
 import { AngularFireStorage } from 'angularfire2/storage';
 import * as firebase from 'firebase/app';
 import { CameraOptions, Camera } from '@ionic-native/camera';
-
+import { AboutPage } from '../about/about';
 
 @Component({
   selector: 'page-home',
@@ -63,6 +63,7 @@ export class HomePage {
       subTitle:"Logout from your account?",
       buttons:['cancle',{text:'logout',handler: out=> {
         this.auth.auth.signOut();
+        
       }}]
     });
     alert.present();
