@@ -1,0 +1,251 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<style>
+
+page-login {
+
+}
+
+ion-content {
+    background-image: url('assets/imgs/back.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.over {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: #000;
+    opacity: 0.5;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    width: 100%;
+    position: relative;
+    z-index: 3;
+    color: #FFF;
+}
+
+.content .upper {
+    margin-top: 20px;
+    display: flex;
+}
+
+.content .upper .one {
+    width: 100%;
+    padding: 15px;
+    color: #FFF;
+    font-size: 17px;
+    background: #38404b;
+}
+
+.content .upper .two {
+    width: 100%;
+    padding: 15px;
+    color: #FFF;
+    font-size: 17px;
+    background: #38404b;
+}
+
+.content .upper .active {
+background: rgba(0, 0, 0, 0.5);
+}
+
+.content .inputs {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+.content .inputs input {
+    padding: 13px;
+    color: gray;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    border: 1px solid #FFF;
+    padding-left: 27px;
+}
+
+.content .inputs .email, .content .inputs .pass,.content .inputs .name {
+    position: relative;
+}
+
+
+.content .inputs .email ion-icon, .content .inputs .pass ion-icon, .content .inputs .name ion-icon {
+    color: #8999a7;
+    position: absolute;
+    top: 16px;
+    left: 9px;
+}
+
+.content .logbut {
+    background: #ff9000;
+    padding: 13px;
+    width: 100%;
+    color: #FFF;
+    font-size: 17px;
+    border: 1px solid #ff9000
+}
+
+.content .forget {
+    margin-top: 20px;
+}
+
+.content .other-login {
+    font-size: 15px;
+    color: #FFF;
+    padding: 13px;
+    background: transparent;
+    border: 1px solid #FFF;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px
+}
+
+.content .other-login ion-icon {
+    padding-right: 6px;
+}
+
+.content .mycopy {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+@media(max-height:570px){
+    .content .mycopy {
+        display: none;
+    }
+}
+
+.signup-page .inputs {
+    display: none;
+}
+
+</style>
+
+
+<ion-content padding>
+
+<div class="over"></div>
+
+<div class="header" text-center>
+ 
+<div class="content">
+
+  <!-- start login-->
+
+
+<div class="title">
+  <img src="assets/imgs/logonam.png" width="200" height="100">
+</div>
+
+<div class="loginpage">
+
+<div class="upper">
+  <button (click)="loginpage()" class="one active">Login</button>
+  <button (click)="signuppage()" class="two">SignUp</button>
+</div>
+
+
+
+<div class="inputs">
+
+<div class="email">
+    <ion-icon name="mail"></ion-icon>
+<input type="email" placeholder="E-mail" #logemail>
+</div>
+
+<div class="pass">
+    <ion-icon name="lock"></ion-icon> 
+<input type="password" placeholder="Password" #logpass>
+</div>
+
+<button class="logbut" (click)="login(logemail.value,logpass.value)" >Login</button>
+
+<p class="forget">Forget password?</p>
+
+<button class="other-login">
+    <ion-icon name="logo-facebook"></ion-icon> Facebook Login
+</button>
+
+<button class="other-login">
+    <ion-icon name="logo-google"></ion-icon>  Google Login
+  </button>
+
+</div>
+
+<div class="mycopy">
+<p class="copy">Copyright &copy; Code4Iraq</p>
+</div>
+
+</div>
+<!-- end login -->
+
+<!-- start signup -->
+
+<div class="signup-page">
+
+    
+    <div class="inputs">
+    
+    <div class="email">
+        <ion-icon name="mail"></ion-icon>
+    <input type="email" placeholder="E-mail" #email>
+    </div>
+
+    <div class="name" style="margin: 0px;">
+        <ion-icon name="brush"></ion-icon>
+    <input type="text" placeholder="Full-name" #name>
+    </div>
+    
+    <div class="pass">
+        <ion-icon name="lock"></ion-icon>
+    <input type="password" placeholder="Password" #pass>
+    </div>
+    
+    <button class="logbut" (click)="register(email.value,name.value,pass.value)" >Register</button>
+
+    
+    <button class="other-login" style="margin-top: 10px;">
+        <ion-icon name="logo-facebook"></ion-icon> Facebook Signup
+    </button>
+    
+    <button class="other-login">
+        <ion-icon name="logo-google"></ion-icon>  Google Signup
+      </button>
+    
+    </div>
+
+    
+    </div>
+
+<!-- end signup -->
+
+</div>
+
+
+
+</div>
+
+</ion-content>

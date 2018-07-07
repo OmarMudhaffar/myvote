@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>MyVote</ion-title>
+
+
+    <div class="user-logo" padding-right>
+        <img [src]="image" width="30" height="30" (click)="takePhoto()" >
+        <ion-icon name ="ios-log-out" (click)="logout()" ></ion-icon>
+
+    </div>
+
+
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+
+    <ion-card *ngFor="let item of list | async | reverb">
+      <ion-card-header>
+      
+
+          <img [src]="item.payload.val().image" width="40" height="40">
+      
+        <div class="name">
+            <span class="name">{{item.payload.val().name}}</span>
+
+                <img *ngIf="item.payload.val().verified" src="http://3.bp.blogspot.com/-93C2oRnaKqk/WUkZJf_6GjI/AAAAAAAAGj4/zpiDJRN-AyYZooQ-oc28hT8dny9_9eRzwCK4BGAYYCw/s1600/1495368559287.png">
+
+    
+        </div>
+
+      
+        <span class="date" float-right>{{item.payload.val().year}}</span>
+
+      </ion-card-header>
+      <ion-card-content>
+        {{item.payload.val().text}}
+      </ion-card-content>
+
+     <div class="sections" padding>
+
+        <div class="dislike">
+            <i class="fa fa-thumbs-o-down" aria-hidden="true" (click)="setDis(item.key,item.payload.val().like,item.payload.val().dis,item.payload.val().love)" ></i>
+            <ion-badge>{{item.payload.val().dis}}</ion-badge>
+         </div>
+
+      <div class="love">
+          <ion-icon name="heart" (click)="setLove(item.key,item.payload.val().like,item.payload.val().dis,item.payload.val().love)" ></ion-icon>
+          <ion-badge>{{item.payload.val().love}}</ion-badge>
+       </div>
+
+       <div class="like">
+          <i class="fa fa-thumbs-o-up" aria-hidden="true" (click)="setLike(item.key,item.payload.val().like,item.payload.val().dis,item.payload.val().love)" ></i>
+          <ion-badge >{{item.payload.val().like}}</ion-badge>
+      </div>
+
+
+     
+
+     </div>
+
+    </ion-card>
+
+
+    <ion-fab right bottom>
+        <button (click)="showAdd()" ion-fab mini><ion-icon name="add"></ion-icon></button>
+  </ion-fab>    
+
+  
+  <div class="edit-dialog">
+
+    <div class="alert-header">
+        <h3>Add new vote</h3>
+        <textarea #text></textarea>
+        <button (click)="add(text.value)" >Add   </button>
+        <button (click)="cancle()" >Cancle   </button>
+    </div>
+
+    </div>
+
+
+</ion-content>

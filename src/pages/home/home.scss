@@ -1,0 +1,178 @@
+page-home {
+
+}
+
+ion-header {
+background: #38404b !important;
+
+}
+
+.toolbar-title {
+    background: #38404b !important;
+    color: #FFF;
+    
+}
+
+ion-header .add {
+    width: 100%;
+}
+
+.toolbar-content {
+    display: flex;
+}
+
+ion-navbar {
+    display: flex;
+}
+
+ion-navbar .user-logo img{
+border-radius: 50%;
+}
+
+.toolbar-background {
+    background: #38404b !important;
+    color: #FFF;  
+}
+
+ion-card img {
+    display: inline-block;
+    
+    width: 40px;
+    border-radius: 50%;
+}
+
+
+ion-card ion-card-header {
+    display: flex;
+align-items: center;
+}
+
+
+
+ion-card ion-card-header .date {
+    width: 100%;
+    display: block;
+    text-align: end;
+    color: gray;
+    font-size: 14px;
+}
+
+ion-card .sections {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ion-card .sections ion-icon:hover, ion-card .sections i:hover {
+    transform: scale(1.2)
+}
+
+ion-card .sections .like, ion-card .sections .dislike, ion-card .love {
+
+    width: 100%;
+    text-align: center;
+
+}
+
+ ion-card .love ion-icon {
+    font-size: 25px;
+    display: block;
+    color: #e00;
+    margin-bottom: 5px;
+
+}
+
+ion-card .like > i , ion-card .dislike > i {
+    font-size: 25px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+ion-card  ion-badge {
+    padding: 4px;
+    font-size: 10px;
+}
+
+.user-logo ion-icon {
+    font-size: 28px;
+    color: #FFF;
+    font-weight: bold;
+    margin-left: 19px;
+}
+
+.user-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.edit-dialog {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0,0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-dialog .alert-header {
+    background: #FFF;
+    padding: 10px;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    margin: 20px;
+    box-shadow: 0px 3px 17px -2px;
+}
+
+.edit-dialog .alert-header textarea {
+    width: 100%;
+    height: 170px;
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 1px;
+    margin-top: 20px;
+}
+
+.edit-dialog .alert-header button {
+    float: right;
+    margin-right: 10px;
+    background: transparent;
+    color: #488aff;
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.edit-dialog .alert-header h3 {
+float: left;
+}
+
+.name {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.name img {
+    width: 17px;
+    margin-left: 1px;
+}
+
+
+.fab {
+    margin: 8px;
+    width: 45px !important;
+    height: 45px !important;
+    line-height: 40px;
+    opacity: 0.9 !important;
+}

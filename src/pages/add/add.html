@@ -1,0 +1,50 @@
+<!--
+  Generated template for the AddPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<style>
+  
+textarea {
+    display: block;
+    width: 100%;
+    height: 162px;
+    margin: 0;
+    padding: 5px;
+}
+
+button {
+    margin-top: 10px;
+    float: right; 
+    padding: 15px;
+    width: 100%;
+    background: #ff9000;
+    color: #FFF;
+    font-weight: bold;
+}
+</style>
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>NewVote</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<div class="add">
+
+<textarea #text>
+
+</textarea>
+
+<button (click)="add(text.value)" >Add vote</button>
+
+</div>
+
+</ion-content>

@@ -1,0 +1,234 @@
+<style>
+
+
+
+ion-header {
+background: #38404b !important;
+
+}
+
+.toolbar-title {
+    background: #38404b !important;
+    color: #FFF;
+    
+}
+
+ion-header .add {
+    width: 100%;
+}
+
+.toolbar-content {
+    display: flex;
+}
+
+ion-navbar {
+    display: flex;
+}
+
+ion-navbar .user-logo img{
+border-radius: 50%;
+}
+
+.toolbar-background {
+    background: #38404b !important;
+    color: #FFF;  
+}
+
+ion-card img {
+    display: inline-block;
+    margin-right: 10px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+
+ion-card ion-card-header {
+    display: flex;
+align-items: center;
+}
+
+
+ion-card ion-card-header .date {
+    width: 100%;
+    display: block;
+    text-align: end;
+    color: gray;
+    font-size: 14px;
+}
+
+ion-card .sections {
+float: right;
+}
+
+ion-card .sections .delete {
+    margin-left: 15px;
+}
+
+ion-card .sections ion-icon {
+  font-size: 20px;
+  color: #38404b;
+}
+
+
+.user-logo ion-icon {
+    font-size: 28px;
+    color: #FFF;
+    font-weight: bold;
+    margin-left: 19px;
+}
+
+.user-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.breakword {
+    background: #e00;
+}
+
+.edit-dialog {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0,0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-dialog .alert-header {
+    background: #FFF;
+    padding: 10px;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    margin: 20px;
+    box-shadow: 0px 3px 17px -2px;
+}
+
+.edit-dialog .alert-header textarea {
+    width: 100%;
+    height: 170px;
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 1px;
+    margin-top: 20px;
+}
+
+.edit-dialog .alert-header button {
+    float: right;
+    margin-right: 10px;
+    background: transparent;
+    color: #488aff;
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.edit-dialog .alert-header h3 {
+float: left;
+}
+
+.edit-dialog .alert-header input {
+    display: none;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.name img {
+    width: 17px;
+    margin-left: 1px;
+}
+
+</style>
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>MyVote</ion-title>
+
+
+    <div class="user-logo" padding-right>
+        <img [src]="image" width="30" height="30">
+        <ion-icon name ="ios-log-out"></ion-icon>
+
+    </div>
+
+
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+
+    <ion-card *ngFor="let item of list | async | reverb">
+      <ion-card-header>
+      
+
+          <img [src]="item.payload.val().image" width="40" height="40">
+      
+          <div class="name">
+            <span class="name">{{item.payload.val().name}}</span>
+
+                <img *ngIf="verified" src="http://3.bp.blogspot.com/-93C2oRnaKqk/WUkZJf_6GjI/AAAAAAAAGj4/zpiDJRN-AyYZooQ-oc28hT8dny9_9eRzwCK4BGAYYCw/s1600/1495368559287.png">
+
+    
+        </div>
+
+
+        <span class="date" float-right>{{item.payload.val().year}}</span>
+
+      </ion-card-header>
+      <ion-card-content>
+        {{item.payload.val().text}}
+      </ion-card-content>
+
+     <div class="sections" padding>
+
+
+      
+      <div class="edit">
+        <ion-icon name="md-create" (click)="showEdit(item.payload.val().text,item.key)" ></ion-icon>
+      </div>
+
+        <div class="delete">
+            <ion-icon name="md-trash" (click)="delete(item.key)" ></ion-icon>
+         </div>
+
+
+
+
+     
+
+     </div>
+
+    </ion-card>
+
+
+    <div class="edit-dialog">
+
+    <div class="alert-header">
+        <h3>Edit your vote</h3>
+        <textarea #text></textarea>
+        <input type="text" id="mykey" #key>
+        <button (click)="edit(text.value,key.value)" >Edit   </button>
+        <button (click)="cancle()" >Cancle   </button>
+    </div>
+
+    </div>
+
+
+
+
+</ion-content>
